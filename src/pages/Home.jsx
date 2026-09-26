@@ -34,20 +34,22 @@ export default function Home() {
       <Hero />
 
       {/* Featured Products */}
-      <section className="py-24 px-6 bg-maroon-dark">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-maroon-dark">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <p className="font-script text-2xl text-cream/70">Trending Now</p>
-            <h2 className="font-serif text-5xl mt-2 text-cream">
+            <p className="font-script text-xl sm:text-2xl text-cream/70">
+              Trending Now
+            </p>
+            <h2 className="font-serif text-3xl sm:text-5xl mt-2 text-cream">
               Featured Pieces
             </h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {products.slice(0, 4).map((p, i) => (
               <FeatureProduct key={p.id} product={p} index={i} />
             ))}
@@ -56,21 +58,23 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-script text-2xl text-cream/70">Our Collections</p>
-          <h2 className="font-serif text-5xl mt-2 text-cream">
+          <p className="font-script text-xl sm:text-2xl text-cream/70">
+            Our Collections
+          </p>
+          <h2 className="font-serif text-3xl sm:text-5xl mt-2 text-cream">
             Pick Your Vibe
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
           {categories.map((c, i) => (
             <CategoryCard key={c.title} {...c} delay={i * 0.15} />
           ))}
@@ -78,12 +82,12 @@ export default function Home() {
       </section>
 
       {/* Brand Story */}
-      <section className="py-24 px-6 max-w-5xl mx-auto text-center">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-5xl mx-auto text-center">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-script text-3xl text-cream/80"
+          className="font-script text-2xl sm:text-3xl text-cream/80"
         >
           Our Story
         </motion.p>
@@ -91,14 +95,15 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-serif text-4xl mt-4 text-cream leading-snug"
+          className="font-serif text-2xl sm:text-4xl mt-4 text-cream leading-snug"
         >
-          "Fashion is not just what you wear — <br /> it's how you own it."
+          "Fashion is not just what you wear — <br className="hidden sm:block" />{" "}
+          it's how you own it."
         </motion.h3>
-        <p className="mt-6 text-cream/60 max-w-2xl mx-auto">
-          The Muha Co is more than a clothing brand. It's a statement.
-          Born from the idea that every person carries a unique attitude,
-          we craft pieces that speak before you do.
+        <p className="mt-5 sm:mt-6 text-sm sm:text-base text-cream/60 max-w-2xl mx-auto">
+          The Muha Co is more than a clothing brand. It's a statement. Born
+          from the idea that every person carries a unique attitude, we craft
+          pieces that speak before you do.
         </p>
       </section>
 

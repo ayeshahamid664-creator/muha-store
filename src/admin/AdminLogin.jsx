@@ -18,21 +18,25 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-admin-bg px-6">
+    <div className="min-h-screen flex items-center justify-center bg-admin-bg px-4 sm:px-6 py-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full max-w-md bg-admin-card border border-admin-border rounded-2xl p-10"
+        className="w-full max-w-md bg-admin-card border border-admin-border rounded-2xl p-6 sm:p-10"
       >
         <div className="text-center mb-8">
           <img
             src="/logo.png"
             alt="The Muha Co"
-            className="w-16 h-16 rounded-full mx-auto"
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full mx-auto"
           />
-          <h1 className="font-serif text-3xl text-cream mt-4">Admin Panel</h1>
-          <p className="font-script text-xl text-cream/60 mt-1">the Muha Co</p>
+          <h1 className="font-serif text-2xl sm:text-3xl text-cream mt-4">
+            Admin Panel
+          </h1>
+          <p className="font-script text-lg sm:text-xl text-cream/60 mt-1">
+            the Muha Co
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -45,7 +49,7 @@ export default function AdminLogin() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full mt-2 bg-admin-bg border border-admin-border rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-cream/50 transition"
+              className="w-full mt-2 bg-admin-bg border border-admin-border rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-cream/50 transition text-sm"
               placeholder="admin@muha.co"
             />
           </div>
@@ -58,7 +62,7 @@ export default function AdminLogin() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full mt-2 bg-admin-bg border border-admin-border rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-cream/50 transition"
+              className="w-full mt-2 bg-admin-bg border border-admin-border rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-cream/50 transition text-sm"
               placeholder="••••••••"
             />
           </div>

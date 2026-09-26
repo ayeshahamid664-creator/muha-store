@@ -7,11 +7,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-maroon-dark text-cream/80 py-10 border-t border-cream/10">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <footer className="bg-maroon-dark text-cream/80 py-8 sm:py-10 border-t border-cream/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-6 sm:gap-8">
         <div>
-          <h3 className="font-script text-3xl text-cream">the Muha Co</h3>
-          <p className="mt-2 text-sm">Wear your attitude. Define your story.</p>
+          <h3 className="font-script text-2xl sm:text-3xl text-cream">
+            the Muha Co
+          </h3>
+          <p className="mt-2 text-sm">
+            Wear your attitude. Define your story.
+          </p>
         </div>
         <div>
           <h4 className="uppercase tracking-widest text-xs mb-3 text-cream">

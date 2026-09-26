@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useAdminAuth } from "../context/AdminAuthContext";
 
-export default function AdminSidebar() {
+export default function AdminSidebar({ open, onClose }) {
   const { logout } = useAdminAuth();
   const navigate = useNavigate();
 
@@ -20,8 +20,16 @@ export default function AdminSidebar() {
     { to: "/admin/settings", label: "Settings", icon: Settings },
   ];
 
+  const handleNav = () => {
+    if (onClose) onClose();
+  };
+
   return (
-    <aside className="fixed top-0 left-0 w-64 h-screen bg-admin-card border-r border-admin-border flex flex-col">
+    <aside
+      className={`fixed top-0 left-0 w-64 h-screen bg-admin-card border-r border-admin-border flex flex-col z-50 transition-transform duration-300 ${
+        open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+      }`}
+    >
       {/* Logo */}
       <div className="flex items-center gap-3 px-6 py-5 border-b border-admin-border">
         <img src="/logo.png" alt="logo" className="w-10 h-10 rounded-full" />
@@ -36,12 +44,13 @@ export default function AdminSidebar() {
       </div>
 
       {/* Nav Links */}
-      <nav className="flex-1 px-3 py-6 space-y-1">
+      <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
         {links.map(({ to, label, icon: Icon, end }) => (
           <NavLink
             key={to}
             to={to}
             end={end}
+            onClick={handleNav}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-all ${
                 isActive
@@ -59,7 +68,10 @@ export default function AdminSidebar() {
       {/* Bottom Actions */}
       <div className="p-3 border-t border-admin-border space-y-1">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => {
+            navigate("/");
+            handleNav();
+          }}
           className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm text-cream/60 hover:bg-admin-hover hover:text-cream transition"
         >
           <Home size={18} /> Back to Site

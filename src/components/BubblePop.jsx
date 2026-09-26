@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 export default function BubblePop({ count = 18 }) {
   const bubbles = Array.from({ length: count }).map((_, i) => ({
     id: i,
-    left: Math.random() * 100, // 0-100%
-    size: 20 + Math.random() * 70, // 20-90px
+    left: Math.random() * 100,
+    size: 20 + Math.random() * 70,
     delay: Math.random() * 2,
     duration: 4 + Math.random() * 4,
-    drift: (Math.random() - 0.5) * 100, // -50 to 50px
+    drift: (Math.random() - 0.5) * 100,
   }));
 
   return (
@@ -15,11 +15,7 @@ export default function BubblePop({ count = 18 }) {
       {bubbles.map((b) => (
         <motion.span
           key={b.id}
-          initial={{
-            y: "110%",
-            opacity: 0,
-            scale: 0.3,
-          }}
+          initial={{ y: "110%", opacity: 0, scale: 0.3 }}
           animate={{
             y: "-20%",
             opacity: [0, 1, 1, 0],
@@ -45,25 +41,13 @@ export default function BubblePop({ count = 18 }) {
             border: "1px solid rgba(255,255,255,0.25)",
           }}
         >
-          {/* Top shine */}
           <span
             className="absolute rounded-full bg-white/80 blur-[2px]"
-            style={{
-              top: "12%",
-              left: "18%",
-              width: "30%",
-              height: "20%",
-            }}
+            style={{ top: "12%", left: "18%", width: "30%", height: "20%" }}
           />
-          {/* Small shine */}
           <span
             className="absolute rounded-full bg-white/60 blur-[1px]"
-            style={{
-              top: "15%",
-              right: "20%",
-              width: "10%",
-              height: "10%",
-            }}
+            style={{ top: "15%", right: "20%", width: "10%", height: "10%" }}
           />
         </motion.span>
       ))}

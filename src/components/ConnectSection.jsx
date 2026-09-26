@@ -53,10 +53,10 @@ export default function ConnectSection() {
   const showcase = products.slice(0, 6);
 
   return (
-    <section className="relative py-24 px-6 bg-maroon overflow-hidden">
+    <section className="relative py-16 sm:py-24 px-4 sm:px-6 bg-maroon overflow-hidden">
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-pink-900/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-pink-900/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Grain */}
       <div className="absolute inset-0 grain opacity-20 pointer-events-none" />
@@ -68,29 +68,32 @@ export default function ConnectSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-script text-3xl text-cream/70">let's connect</p>
-          <h2 className="font-serif text-5xl md:text-6xl mt-3 text-cream leading-tight">
-            DM for Orders <span className="text-cream/40">·</span> Let's Talk Style
+          <p className="font-script text-2xl sm:text-3xl text-cream/70">
+            let's connect
+          </p>
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl mt-3 text-cream leading-tight">
+            DM for Orders <span className="text-cream/40">·</span> Let's Talk
+            Style
           </h2>
-          <p className="mt-5 text-cream/60 max-w-xl mx-auto">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-cream/60 max-w-xl mx-auto px-2">
             Slide into our DMs, drop a message, or just say hi. Your next
             favorite piece is one tap away.
           </p>
 
           {/* Divider */}
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <span className="w-16 h-[1px] bg-cream/30" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-cream/50">
+          <div className="mt-6 sm:mt-8 flex items-center justify-center gap-4">
+            <span className="w-10 sm:w-16 h-[1px] bg-cream/30" />
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-cream/50">
               @themuha.co
             </span>
-            <span className="w-16 h-[1px] bg-cream/30" />
+            <span className="w-10 sm:w-16 h-[1px] bg-cream/30" />
           </div>
         </motion.div>
 
         {/* Social Buttons */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-14 sm:mb-20">
           {socials.map((s, i) => (
             <motion.a
               key={s.name}
@@ -102,7 +105,7 @@ export default function ConnectSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl border border-cream/10 bg-cream/5 backdrop-blur-sm p-6 flex flex-col items-center text-center transition-all duration-500 hover:border-cream/30"
+              className="group relative overflow-hidden rounded-2xl border border-cream/10 bg-cream/5 backdrop-blur-sm p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-500 hover:border-cream/30"
             >
               {/* Gradient glow on hover */}
               <div
@@ -110,18 +113,18 @@ export default function ConnectSection() {
               />
 
               {/* Icon */}
-              <div className="relative z-10 w-14 h-14 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream group-hover:scale-110 transition-transform duration-500">
+              <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream group-hover:scale-110 transition-transform duration-500">
                 {s.icon}
               </div>
 
-              <h3 className="relative z-10 font-serif text-xl text-cream mt-4">
+              <h3 className="relative z-10 font-serif text-lg sm:text-xl text-cream mt-3 sm:mt-4">
                 {s.name}
               </h3>
-              <p className="relative z-10 text-xs text-cream/50 mt-1 tracking-wider">
+              <p className="relative z-10 text-[10px] sm:text-xs text-cream/50 mt-1 tracking-wider break-all">
                 {s.handle}
               </p>
 
-              <span className="relative z-10 mt-4 text-[10px] uppercase tracking-widest text-cream/60 group-hover:text-cream transition">
+              <span className="relative z-10 mt-3 sm:mt-4 text-[9px] sm:text-[10px] uppercase tracking-widest text-cream/60 group-hover:text-cream transition">
                 Connect →
               </span>
             </motion.a>
@@ -135,18 +138,18 @@ export default function ConnectSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex items-center gap-6 mb-8">
-            <span className="w-12 h-[1px] bg-cream/40" />
-            <p className="text-[10px] uppercase tracking-[0.4em] text-cream/50">
-              Tag Us To Be Featured
+          <div className="flex items-center gap-3 sm:gap-6 mb-6 sm:mb-8">
+            <span className="w-8 sm:w-12 h-[1px] bg-cream/40" />
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-cream/50 whitespace-nowrap">
+              Tag Us
             </p>
             <span className="flex-1 h-[1px] bg-cream/15" />
-            <p className="text-[10px] uppercase tracking-[0.4em] text-cream/40">
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-cream/40 whitespace-nowrap">
               #TheMuhaCo
             </p>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3">
             {showcase.map((p, i) => (
               <motion.a
                 key={p.id}
@@ -179,12 +182,12 @@ export default function ConnectSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-20 text-center"
+          className="mt-14 sm:mt-20 text-center"
         >
-          <p className="font-script text-3xl md:text-4xl text-cream/80">
+          <p className="font-script text-2xl sm:text-3xl md:text-4xl text-cream/80">
             "Your vibe. Your style. Your story."
           </p>
-          <p className="mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/40">
+          <p className="mt-3 sm:mt-4 text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-cream/40">
             — The Muha Co
           </p>
         </motion.div>
