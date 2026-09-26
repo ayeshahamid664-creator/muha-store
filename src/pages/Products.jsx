@@ -1,0 +1,71 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useProducts } from "../context/ProductContext";
+import FeatureProduct from "../components/FeatureProduct";
+
+export default function Products() {
+  const { products } = useProducts();
+  const [filter, setFilter] = useState("all");
+
+  const filtered =
+    filter === "all"
+      ? products
+      : products.filter((p) => p.category === filter);
+
+  const filters = [
+    { key: "all", label: "All" },
+    { key: "bossy", label: "Bossy" },
+    { key: "casual", label: "Casual" },
+    { key: "cool", label: "Cool" },
+  ];
+
+  return (
+    <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="text-center mb-16"
+      >
+        <p className="font-script text-3xl text-cream/70">the collection</p>
+        <h1 className="font-serif text-6xl md:text-7xl mt-2 text-cream">
+          All Products
+        </h1>
+        <p className="mt-4 text-cream/60 max-w-lg mx-auto">
+          Explore every piece from The Muha Co — crafted for those who wear
+          their attitude.
+        </p>
+      </motion.div>
+
+      {/* Filters */}
+      <div className="flex justify-center flex-wrap gap-3 mb-14">
+        {filters.map((f) => (
+          <button
+            key={f.key}
+            onClick={() => setFilter(f.key)}
+            className={`px-6 py-2 border text-xs uppercase tracking-widest transition-all duration-300 ${
+              filter === f.key
+                ? "bg-cream text-maroon border-cream"
+                : "border-cream/40 text-cream/70 hover:border-cream hover:text-cream"
+            }`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Products Grid */}
+      <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {filtered.map((p, i) => (
+          <FeatureProduct key={p.id} product={p} index={i} />
+        ))}
+      </motion.div>
+
+      {filtered.length === 0 && (
+        <p className="text-center text-cream/50 mt-20">
+          No products found in this category.
+        </p>
+      )}
+    </div>
+  );
+}
